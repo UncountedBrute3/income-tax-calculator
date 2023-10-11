@@ -12,6 +12,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Domain", "IncomeTaxCalculator.Domain\IncomeTaxCalculator.Domain.csproj", "{7F1BC0A7-61D1-48C8-BBCF-7BA07B763939}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Presentation.Api.Tests.Unit", "IncomeTaxCalculator.Presentation.Api.Tests.Unit\IncomeTaxCalculator.Presentation.Api.Tests.Unit.csproj", "{04102746-E4D5-4F81-B1B9-4B8B6C174221}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Infrastructure.Tests.Unit", "IncomeTaxCalculator.Infrastructure.Tests.Unit\IncomeTaxCalculator.Infrastructure.Tests.Unit.csproj", "{4DAFFAEC-2AE4-4337-A86F-6C94FFCD265E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Domain.Tests.Unit", "IncomeTaxCalculator.Domain.Tests.Unit\IncomeTaxCalculator.Domain.Tests.Unit.csproj", "{080F9FD4-510A-4CF0-AD5E-FE3905FC78C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Application.Tests.Unit", "IncomeTaxCalculator.Application.Tests.Unit\IncomeTaxCalculator.Application.Tests.Unit.csproj", "{D8C3DC6E-BE16-4D2E-BACC-44D0AA15C38C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,11 +42,31 @@ Global
 		{7F1BC0A7-61D1-48C8-BBCF-7BA07B763939}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F1BC0A7-61D1-48C8-BBCF-7BA07B763939}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F1BC0A7-61D1-48C8-BBCF-7BA07B763939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04102746-E4D5-4F81-B1B9-4B8B6C174221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04102746-E4D5-4F81-B1B9-4B8B6C174221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04102746-E4D5-4F81-B1B9-4B8B6C174221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04102746-E4D5-4F81-B1B9-4B8B6C174221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DAFFAEC-2AE4-4337-A86F-6C94FFCD265E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAFFAEC-2AE4-4337-A86F-6C94FFCD265E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAFFAEC-2AE4-4337-A86F-6C94FFCD265E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAFFAEC-2AE4-4337-A86F-6C94FFCD265E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080F9FD4-510A-4CF0-AD5E-FE3905FC78C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080F9FD4-510A-4CF0-AD5E-FE3905FC78C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080F9FD4-510A-4CF0-AD5E-FE3905FC78C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080F9FD4-510A-4CF0-AD5E-FE3905FC78C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8C3DC6E-BE16-4D2E-BACC-44D0AA15C38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C3DC6E-BE16-4D2E-BACC-44D0AA15C38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C3DC6E-BE16-4D2E-BACC-44D0AA15C38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C3DC6E-BE16-4D2E-BACC-44D0AA15C38C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8E0BF98F-15B1-45BD-A152-97BF12DC2921} = {02F5B5D3-9AAF-4DED-AA23-E11071C96453}
 		{D746ADE9-E663-4A60-9DC4-3DE41F02ED18} = {02F5B5D3-9AAF-4DED-AA23-E11071C96453}
 		{D72D5D0F-FFD0-414F-ACF1-B5B2AE600E13} = {02F5B5D3-9AAF-4DED-AA23-E11071C96453}
 		{7F1BC0A7-61D1-48C8-BBCF-7BA07B763939} = {02F5B5D3-9AAF-4DED-AA23-E11071C96453}
+		{04102746-E4D5-4F81-B1B9-4B8B6C174221} = {E4F3552D-E99D-4152-8DC0-780E7E1821EF}
+		{4DAFFAEC-2AE4-4337-A86F-6C94FFCD265E} = {E4F3552D-E99D-4152-8DC0-780E7E1821EF}
+		{080F9FD4-510A-4CF0-AD5E-FE3905FC78C5} = {E4F3552D-E99D-4152-8DC0-780E7E1821EF}
+		{D8C3DC6E-BE16-4D2E-BACC-44D0AA15C38C} = {E4F3552D-E99D-4152-8DC0-780E7E1821EF}
 	EndGlobalSection
 EndGlobal
