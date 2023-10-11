@@ -1,0 +1,65 @@
+# Built application files
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.nupkg
+
+# .NET build output
+bin/
+obj/
+artifacts/
+*.sln.DotSettings.user
+*.DotSettings.user
+
+# Rider IDE specific
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Visual Studio Code directories
+.vscode/
+
+# Windows Batch Files
+*.bat
+
+# T4 Template auto-generated files
+*.t4.cs
+
+# Temporary files
+*.tmp
+*.swp
+*.log
+*.swm
+
+# R files
+*.rhistory
+.RData
+.Ruserdata
+
+# Dotnet script auto-generated folder
+.dotnet
+
+# SQLite database files
+*.db
+
+# Test Files
+TestResults/
