@@ -1,6 +1,8 @@
-﻿namespace IncomeTaxCalculator.Domain.Tables;
+﻿using IncomeTaxCalculator.Domain.Interfaces;
 
-public class Employee
+namespace IncomeTaxCalculator.Domain.Tables;
+
+public class Employee : IEmployee
 {
     public int EmployeeId { get; set; }
     public string FirstName { get; set; } = "";

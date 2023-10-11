@@ -20,10 +20,13 @@ public class HrVersionOneMigration : Migration
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("Name").AsString(50).NotNullable()
             .WithColumn("StartRange").AsInt32().NotNullable()
-            .WithColumn("EndRange").AsInt32().NotNullable();
-        
+            .WithColumn("EndRange").AsInt32().Nullable()
+            .WithColumn("TaxRate").AsInt32().NotNullable();
+
         Insert.IntoTable("TaxBands")
-            .Row(new { Name = "Tax Band A", StartRange = "superadmin@mvcapp.com",PASSWORD_HASH = "dfgkmdglkdmfg34532+"});
+            .Row(new { Name = "Tax Band A", StartRange = 0, EndRange = 5000, TaxRate = 0 })
+            .Row(new { Name = "Tax Band B", StartRange = 5000, EndRange = 20000, TaxRate = 20 })
+            .Row(new { Name = "Tax Band C", StartRange = 20000, TaxRate = 40 });
     }
 
     public override void Down()

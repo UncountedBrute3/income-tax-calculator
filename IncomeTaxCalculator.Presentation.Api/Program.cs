@@ -1,6 +1,15 @@
+using IncomeTaxCalculator.Infrastructure.Configurations;
+using IncomeTaxCalculator.Infrastructure.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
+DbOptions dbOptions = new();
+builder.Configuration.GetSection(DbOptions.Databases).Bind(dbOptions);
+
 // Add services to the container.
+builder.Services.AddSingleton(dbOptions);
+
+builder.Services.AddHrMigration(dbOptions);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
