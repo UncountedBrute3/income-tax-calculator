@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using IncomeTaxCalculator.Infrastructure.Interfaces;
 using IncomeTaxCalculator.Infrastructure.Options;
-using Microsoft.Data.SqlClient;
+using Microsoft.Data.Sqlite;
 
 namespace IncomeTaxCalculator.Infrastructure.Contexts;
 
@@ -14,5 +14,5 @@ public class HrDbContext : IDbContext
         _connectionString = options.HrConnectionString;
     }
     
-    public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
+    public IDbConnection CreateConnection() => new SqliteConnection(_connectionString);
 }

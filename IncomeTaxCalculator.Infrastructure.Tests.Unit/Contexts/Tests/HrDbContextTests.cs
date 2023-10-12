@@ -2,21 +2,22 @@
 using IncomeTaxCalculator.Infrastructure.Contexts;
 using IncomeTaxCalculator.Infrastructure.Options;
 using Microsoft.Data.SqlClient;
+using Microsoft.Data.Sqlite;
 
 namespace IncomeTaxCalculator.Infrastructure.Tests.Unit.Contexts.Tests;
 
 public class HrDbContextTests
 {
     [Fact]
-    public void CreateConnection_ReturnsSqlConnection()
+    public void CreateConnection_ReturnsSqliteConnection()
     {
         // Arrange.
         HrDbContext sut = new(new DbOptions()
         {
-            HrConnectionString = ":memory;Version=3;New=true;"
+            HrConnectionString = "Data Source=:memory:"
         });
 
         // Act and Assert.
-        Assert.IsType<SqlConnection>(sut.CreateConnection());
+        Assert.IsType<SqliteConnection>(sut.CreateConnection());
     }
 }
