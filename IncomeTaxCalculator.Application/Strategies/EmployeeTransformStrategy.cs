@@ -32,13 +32,19 @@ public class EmployeeTransformStrategy : IEmployeeTransformStrategy
 
     private decimal CalculateNetIncome(decimal grossIncome)
     {
-        decimal netIncome = 0;
-        decimal remainingGross = grossIncome;
+        decimal totalTax = 0;
         foreach (ITaxBand taxBand in _taxBands)
         {
-            
+            if (grossIncome <= taxBand.StartRange)
+            {
+                break;
+            }
+
+            decimal taxableAtThisRate = Math.Min(taxBand.EndRange - taxBand.StartRange, grossIncome - taxBand.StartRange);
+            decimal taxThisBand = taxableAtThisRate * taxBand.TaxPercentage;
+            totalTax += taxThisBand;
         }
 
-        return netIncome;
+        return grossIncome - totalTax;
     }
 }

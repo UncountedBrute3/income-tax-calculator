@@ -12,7 +12,7 @@ public class EmployeeTransformStrategyTests
     [InlineData(0, 0)]
     [InlineData(4500, 4500)]
     [InlineData(5000, 5000)]
-    [InlineData(5001, 5000.2)]
+    [InlineData(5001, 5000.8)]
     [InlineData(9999, 8999.2)]
     [InlineData(10000, 9000)]
     [InlineData(40000, 29000)]
@@ -52,7 +52,7 @@ public class EmployeeTransformStrategyTests
             new TaxBand()
             {
                 StartRange = 20000,
-                EndRange = -1,
+                EndRange = int.MaxValue,
                 TaxRate = 40
             },
         };

@@ -22,4 +22,9 @@
         </PackageReference>
     </ItemGroup>
 
+
+    <ItemGroup>
+      <ProjectReference Include="..\IncomeTaxCalculator.Infrastructure\IncomeTaxCalculator.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
