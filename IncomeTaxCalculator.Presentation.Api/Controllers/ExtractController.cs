@@ -17,6 +17,11 @@ public class ExtractController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Method to extract employee data from a CSV file.
+    /// </summary>
+    /// <param name="file">The file to extract.</param>
+    /// <returns></returns>
     [HttpPost]
     [Route("")]
     public async Task<IActionResult> Extract(IFormFile file)

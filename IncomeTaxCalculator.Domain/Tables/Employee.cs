@@ -1,5 +1,8 @@
 ﻿namespace IncomeTaxCalculator.Domain.Tables;
 
+/// <summary>
+/// Class to represent an Employee in the target repository.
+/// </summary>
 public class Employee
 {
     public int EmployeeId { get; set; }

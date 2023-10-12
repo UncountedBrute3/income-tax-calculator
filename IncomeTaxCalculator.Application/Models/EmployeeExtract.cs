@@ -1,7 +1,8 @@
-﻿using IncomeTaxCalculator.Application.Interfaces;
+﻿namespace IncomeTaxCalculator.Application.Models;
 
-namespace IncomeTaxCalculator.Application.Models;
-
+/// <summary>
+/// Class to represent the data coming from the extract.
+/// </summary>
 public class EmployeeExtract
 {
     public int EmployeeID { get; set; }

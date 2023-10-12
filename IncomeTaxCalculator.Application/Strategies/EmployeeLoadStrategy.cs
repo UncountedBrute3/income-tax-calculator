@@ -5,6 +5,9 @@ using Microsoft.Extensions.Logging;
 
 namespace IncomeTaxCalculator.Application.Strategies;
 
+/// <summary>
+/// Class to handle loading of the <see cref="Employee"/> data into the repository.
+/// </summary>
 public class EmployeeLoadStrategy : IEmployeeLoadStrategy
 {
     private readonly IEmployeeRepository _repository;
@@ -16,6 +19,11 @@ public class EmployeeLoadStrategy : IEmployeeLoadStrategy
         _logger = logger;
     }
 
+    /// <summary>
+    /// Method to load the <see cref="Employee"/> data into the repository.
+    /// </summary>
+    /// <param name="employee">The employee to add.</param>
+    /// <returns>True if only 1 row was changed. Otherwise, False.</returns>
     public async Task<bool> Load(Employee employee)
     {
         int rowsChanged = await _repository.Add(employee);

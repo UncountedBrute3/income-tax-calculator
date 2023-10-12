@@ -5,6 +5,9 @@ using Microsoft.Extensions.Logging;
 
 namespace IncomeTaxCalculator.Application.Services;
 
+/// <summary>
+/// Service to handle the overall etl processing. 
+/// </summary>
 public class ProcessingService : IProcessingService
 {
     private readonly IEmployeeExtractionStrategy _extractor;
@@ -21,6 +24,11 @@ public class ProcessingService : IProcessingService
         _logger = logger;
     }
 
+    /// <summary>
+    /// Method to run the ETL job.
+    /// </summary>
+    /// <param name="data">The csv file to extract.</param>
+    /// <returns>An <see cref="ExtractDto"/> containing the overall result of the ETL process.</returns>
     public async Task<ExtractDto?> Process(Stream data)
     {
         IEnumerable<EmployeeExtract> extractedEmployees = _extractor.Extract(data);
@@ -29,6 +37,8 @@ public class ProcessingService : IProcessingService
         {
             result.TotalInput++;
             
+            // The way the error handling is being processed would be a question as to rollback.
+            // For the purposes of this test, the individual item is logged. There are other options available.
             try
             {
                 Employee transformedEmployee = _transformer.Transform(extract);
