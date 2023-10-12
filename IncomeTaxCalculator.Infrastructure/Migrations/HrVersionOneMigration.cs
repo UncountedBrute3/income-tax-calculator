@@ -13,25 +13,10 @@ public class HrVersionOneMigration : Migration
             .WithColumn("LastName").AsAnsiString(50).Nullable()
             .WithColumn("BirthDate").AsDate().Nullable()
             .WithColumn("AnnualIncome").AsDecimal(10, 2).Nullable();
-
-        // If employee database is outside of our control,
-        // this would go into a different database that is configurable.
-        Create.Table("TaxBands")
-            .WithColumn("Id").AsInt32().PrimaryKey().Identity()
-            .WithColumn("Name").AsString(50).NotNullable()
-            .WithColumn("StartRange").AsInt32().NotNullable()
-            .WithColumn("EndRange").AsInt32().NotNullable()
-            .WithColumn("TaxRate").AsInt32().NotNullable();
-
-        Insert.IntoTable("TaxBands")
-            .Row(new { Name = "Tax Band A", StartRange = 0, EndRange = 5000, TaxRate = 0 })
-            .Row(new { Name = "Tax Band B", StartRange = 5000, EndRange = 20000, TaxRate = 20 })
-            .Row(new { Name = "Tax Band C", StartRange = 20000, EndRange = int.MaxValue, TaxRate = 40 });
     }
 
     public override void Down()
     {
         Delete.Table("Employee");
-        Delete.Table("TaxBands");
     }
 }

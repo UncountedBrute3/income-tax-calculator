@@ -1,9 +1,8 @@
 ﻿using System.Text.Json.Serialization;
-using IncomeTaxCalculator.Application.Interfaces;
 
 namespace IncomeTaxCalculator.Application.Models;
 
-public class ExtractDto : IExtractDto
+public class ExtractDto
 {
     [JsonPropertyName("isSuccess")]
     public bool IsSuccess => Succeeded.Count == TotalInput && Failed.Count == 0;

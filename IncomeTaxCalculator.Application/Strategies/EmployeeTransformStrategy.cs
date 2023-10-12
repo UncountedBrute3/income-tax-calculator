@@ -1,26 +1,33 @@
 ﻿using IncomeTaxCalculator.Application.Interfaces;
-using IncomeTaxCalculator.Domain.Interfaces;
+using IncomeTaxCalculator.Application.Models;
+using IncomeTaxCalculator.Application.Options;
+using IncomeTaxCalculator.Domain.Models;
 using IncomeTaxCalculator.Domain.Tables;
 
 namespace IncomeTaxCalculator.Application.Strategies;
 
 public class EmployeeTransformStrategy : IEmployeeTransformStrategy
 {
-    private readonly ITaxBand[] _taxBands;
+    private readonly TaxBand[] _taxBands;
 
-    public EmployeeTransformStrategy(ITaxBand[] taxBands)
+    public EmployeeTransformStrategy(TaxBandOptions taxBandsOptions)
     {
-        _taxBands = taxBands
+        if (taxBandsOptions.TaxBands == null)
+        {
+            throw new ArgumentNullException(nameof(taxBandsOptions.TaxBands),"Tax band options is incorrectly configured.");
+        }
+        
+        _taxBands = taxBandsOptions.TaxBands
             .OrderBy(o => o.StartRange)
             .ThenBy(o => o.EndRange)
             .ToArray();
     }
     
-    public IEmployee Transform(IEmployeeExtract extract)
+    public Employee Transform(EmployeeExtract extract)
     {
         Employee employee = new Employee()
         {
-            EmployeeId = extract.EmployeeId,
+            EmployeeId = extract.EmployeeID,
             FirstName = extract.FirstName,
             LastName = extract.LastName,
             BirthDate = extract.DateOfBirth,
@@ -33,7 +40,7 @@ public class EmployeeTransformStrategy : IEmployeeTransformStrategy
     private decimal CalculateNetIncome(decimal grossIncome)
     {
         decimal totalTax = 0;
-        foreach (ITaxBand taxBand in _taxBands)
+        foreach (TaxBand taxBand in _taxBands)
         {
             if (grossIncome <= taxBand.StartRange)
             {

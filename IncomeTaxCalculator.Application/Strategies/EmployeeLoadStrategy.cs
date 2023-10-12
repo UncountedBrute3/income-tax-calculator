@@ -1,5 +1,5 @@
 ﻿using IncomeTaxCalculator.Application.Interfaces;
-using IncomeTaxCalculator.Domain.Interfaces;
+using IncomeTaxCalculator.Domain.Tables;
 using IncomeTaxCalculator.Infrastructure.Interfaces;
 using Microsoft.Extensions.Logging;
 
@@ -16,7 +16,7 @@ public class EmployeeLoadStrategy : IEmployeeLoadStrategy
         _logger = logger;
     }
 
-    public async Task<bool> Load(IEmployee employee)
+    public async Task<bool> Load(Employee employee)
     {
         int rowsChanged = await _repository.Add(employee);
         

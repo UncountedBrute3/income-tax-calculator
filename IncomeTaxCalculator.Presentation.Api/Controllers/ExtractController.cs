@@ -1,4 +1,5 @@
 ﻿using IncomeTaxCalculator.Application.Interfaces;
+using IncomeTaxCalculator.Application.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IncomeTaxCalculator.Presentation.Api.Controllers;
@@ -20,7 +21,7 @@ public class ExtractController : ControllerBase
     [Route("")]
     public async Task<IActionResult> Extract(IFormFile file)
     {
-        IExtractDto? result = null;
+        ExtractDto? result = null;
         using (MemoryStream memoryStream = new())
         {
             await file.CopyToAsync(memoryStream);

@@ -1,4 +1,5 @@
-﻿using IncomeTaxCalculator.Domain.Tables;
+﻿using IncomeTaxCalculator.Domain.Models;
+using IncomeTaxCalculator.Domain.Tables;
 
 namespace IncomeTaxCalculator.Domain.Tests.Unit.Tables.Tests;
 
@@ -12,7 +13,7 @@ public class TaxBandTests
         Assert.Equal(default, actual.Id);
         Assert.Equal("", actual.Name);
         Assert.Equal(default, actual.StartRange);
-        Assert.Equal(default, actual.EndRange);
+        Assert.Equal(int.MaxValue, actual.EndRange);
         Assert.Equal(default, actual.TaxRate);
         Assert.Equal(0, actual.TaxPercentage);
     }

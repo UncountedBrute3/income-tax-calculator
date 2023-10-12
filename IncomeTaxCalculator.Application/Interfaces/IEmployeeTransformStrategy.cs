@@ -1,9 +1,9 @@
-﻿using IncomeTaxCalculator.Application.Interfaces;
-using IncomeTaxCalculator.Domain.Interfaces;
+﻿using IncomeTaxCalculator.Application.Models;
+using IncomeTaxCalculator.Domain.Tables;
 
 namespace IncomeTaxCalculator.Application.Interfaces;
 
 public interface IEmployeeTransformStrategy
 {
-    IEmployee Transform(IEmployeeExtract extract);
+    Employee Transform(EmployeeExtract extract);
 }

@@ -1,8 +1,8 @@
-﻿using IncomeTaxCalculator.Domain.Interfaces;
+﻿using IncomeTaxCalculator.Domain.Tables;
 
 namespace IncomeTaxCalculator.Application.Interfaces;
 
 public interface IEmployeeLoadStrategy
 {
-    Task<bool> Load(IEmployee employee);
+    Task<bool> Load(Employee employee);
 }

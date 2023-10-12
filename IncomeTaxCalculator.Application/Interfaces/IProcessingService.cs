@@ -1,8 +1,8 @@
-﻿using IncomeTaxCalculator.Application.Interfaces;
+﻿using IncomeTaxCalculator.Application.Models;
 
 namespace IncomeTaxCalculator.Application.Interfaces;
 
 public interface IProcessingService
 {
-    Task<IExtractDto?> Process(Stream data);
+    Task<ExtractDto?> Process(Stream data);
 }

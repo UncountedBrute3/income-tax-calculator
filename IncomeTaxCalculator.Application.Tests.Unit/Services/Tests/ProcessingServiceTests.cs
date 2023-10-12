@@ -16,7 +16,7 @@ public class ProcessingServiceTests
         using MemoryStream memoryStream = new();
         EmployeeExtract extractItem = new()
         {
-            EmployeeId = 1
+            EmployeeID = 1
         };
         Employee transformedItem = new()
         {
@@ -27,7 +27,7 @@ public class ProcessingServiceTests
         extractor.Extract(memoryStream).Returns(new List<EmployeeExtract>()
         {
             extractItem
-        }.ToAsyncEnumerable());
+        });
         
         IEmployeeTransformStrategy transformer = Substitute.For<IEmployeeTransformStrategy>();
         transformer.Transform(extractItem).Returns(transformedItem);
@@ -40,7 +40,7 @@ public class ProcessingServiceTests
         ProcessingService sut = new(extractor, transformer, loader, logger);
 
         // Act.
-        IExtractDto? actual = await sut.Process(memoryStream);
+        ExtractDto? actual = await sut.Process(memoryStream);
 
         // Assert.
         Assert.NotNull(actual);
@@ -57,7 +57,7 @@ public class ProcessingServiceTests
         using MemoryStream memoryStream = new();
         EmployeeExtract extractItem = new()
         {
-            EmployeeId = 1
+            EmployeeID = 1
         };
         Employee transformedItem = new()
         {
@@ -68,7 +68,7 @@ public class ProcessingServiceTests
         extractor.Extract(memoryStream).Returns(new List<EmployeeExtract>()
         {
             extractItem
-        }.ToAsyncEnumerable());
+        });
         
         IEmployeeTransformStrategy transformer = Substitute.For<IEmployeeTransformStrategy>();
         transformer.Transform(extractItem).Returns(transformedItem);
@@ -81,7 +81,7 @@ public class ProcessingServiceTests
         ProcessingService sut = new(extractor, transformer, loader, logger);
 
         // Act.
-        IExtractDto? actual = await sut.Process(memoryStream);
+        ExtractDto? actual = await sut.Process(memoryStream);
 
         // Assert.
         Assert.NotNull(actual);

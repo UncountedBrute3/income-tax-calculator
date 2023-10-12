@@ -1,6 +1,6 @@
 ﻿using IncomeTaxCalculator.Application.Interfaces;
 using IncomeTaxCalculator.Application.Models;
-using IncomeTaxCalculator.Domain.Interfaces;
+using IncomeTaxCalculator.Domain.Tables;
 using Microsoft.Extensions.Logging;
 
 namespace IncomeTaxCalculator.Application.Services;
@@ -21,29 +21,30 @@ public class ProcessingService : IProcessingService
         _logger = logger;
     }
 
-    public async Task<IExtractDto?> Process(Stream data)
+    public async Task<ExtractDto?> Process(Stream data)
     {
-        IAsyncEnumerable<IEmployeeExtract> extractedEmployees = _extractor.Extract(data);
-        ExtractDto result = new();
-        await foreach (IEmployeeExtract extract in extractedEmployees)
+        IEnumerable<EmployeeExtract> extractedEmployees = _extractor.Extract(data);
+        ExtractDto result = new(); 
+        foreach (EmployeeExtract extract in extractedEmployees)
         {
             result.TotalInput++;
             
             try
             {
-                IEmployee transformedEmployee = _transformer.Transform(extract);
+                Employee transformedEmployee = _transformer.Transform(extract);
                 bool loaded = await _loader.Load(transformedEmployee);
                 if (loaded)
                 {
-                    result.Succeeded.Add(extract.EmployeeId);
+                    result.Succeeded.Add(extract.EmployeeID);
                 }
                 else
                 {
-                    result.Failed.Add(extract.EmployeeId);
+                    result.Failed.Add(extract.EmployeeID);
                 }
             }
             catch (Exception exception)
             {
+                result.Failed.Add(extract.EmployeeID);
                 _logger.LogError(exception, "Unexpected error occured.");
             }
         }

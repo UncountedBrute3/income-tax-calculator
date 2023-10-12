@@ -1,13 +1,11 @@
-﻿using IncomeTaxCalculator.Domain.Interfaces;
+﻿namespace IncomeTaxCalculator.Domain.Models;
 
-namespace IncomeTaxCalculator.Domain.Tables;
-
-public class TaxBand : ITaxBand
+public class TaxBand
 {
     public int Id { get; set; }
     public string Name { get; set; } = "";
     public int StartRange { get; set; }
-    public int EndRange { get; set; }
+    public int EndRange { get; set; } = int.MaxValue;
     public int TaxRate { get; set; }
 
     public decimal TaxPercentage => (decimal)TaxRate / 100;

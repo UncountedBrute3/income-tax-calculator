@@ -2,9 +2,9 @@
 
 namespace IncomeTaxCalculator.Application.Models;
 
-public class EmployeeExtract : IEmployeeExtract
+public class EmployeeExtract
 {
-    public int EmployeeId { get; set; }
+    public int EmployeeID { get; set; }
     public string FirstName { get; set; } = "";
     public string LastName { get; set; } = "";
     public DateOnly DateOfBirth { get; set; }

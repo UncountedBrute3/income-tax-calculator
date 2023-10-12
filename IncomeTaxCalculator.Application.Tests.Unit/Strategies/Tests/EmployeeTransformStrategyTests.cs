@@ -1,7 +1,7 @@
-﻿using IncomeTaxCalculator.Application.Interfaces;
-using IncomeTaxCalculator.Application.Models;
+﻿using IncomeTaxCalculator.Application.Models;
+using IncomeTaxCalculator.Application.Options;
 using IncomeTaxCalculator.Application.Strategies;
-using IncomeTaxCalculator.Domain.Interfaces;
+using IncomeTaxCalculator.Domain.Models;
 using IncomeTaxCalculator.Domain.Tables;
 
 namespace IncomeTaxCalculator.Application.Tests.Unit.Strategies.Tests;
@@ -21,7 +21,7 @@ public class EmployeeTransformStrategyTests
         // Arrange.
         EmployeeExtract extract = new()
         {
-            EmployeeId = 1,
+            EmployeeID = 1,
             FirstName = "Test",
             LastName = "Name",
             DateOfBirth = new DateOnly(1992, 05, 16),
@@ -35,31 +35,34 @@ public class EmployeeTransformStrategyTests
             BirthDate = new DateOnly(1992, 05, 16),
             AnnualIncome = net
         };
-        TaxBand[] taxBands = new[]
+        TaxBandOptions options = new()
         {
-            new TaxBand()
+            TaxBands = new[]
             {
-                StartRange = 0,
-                EndRange = 5000,
-                TaxRate = 0
-            },
-            new TaxBand()
-            {
-                StartRange = 5000,
-                EndRange = 20000,
-                TaxRate = 20
-            },
-            new TaxBand()
-            {
-                StartRange = 20000,
-                EndRange = int.MaxValue,
-                TaxRate = 40
-            },
+                new TaxBand()
+                {
+                    StartRange = 0,
+                    EndRange = 5000,
+                    TaxRate = 0
+                },
+                new TaxBand()
+                {
+                    StartRange = 5000,
+                    EndRange = 20000,
+                    TaxRate = 20
+                },
+                new TaxBand()
+                {
+                    StartRange = 20000,
+                    EndRange = int.MaxValue,
+                    TaxRate = 40
+                },
+            }
         };
-        EmployeeTransformStrategy sut = new(taxBands);
+        EmployeeTransformStrategy sut = new(options);
 
         // Act.
-        IEmployee actual = sut.Transform(extract);
+        Employee actual = sut.Transform(extract);
 
         // Assert.
         Assert.Equal(expected.EmployeeId, actual.EmployeeId);

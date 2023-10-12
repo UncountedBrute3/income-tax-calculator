@@ -32,7 +32,7 @@ public static class MigrationConfiguration
     /// <summary>
     /// Update the database
     /// </summary>
-    public static void UpdateRbacDatabase(this IServiceProvider serviceProvider)
+    public static void UpdateHrDatabase(this IServiceProvider serviceProvider)
     {
         // Instantiate the runner
         var runner = serviceProvider.GetRequiredService<IMigrationRunner>();

@@ -1,6 +1,8 @@
-﻿namespace IncomeTaxCalculator.Application.Interfaces;
+﻿using IncomeTaxCalculator.Application.Models;
+
+namespace IncomeTaxCalculator.Application.Interfaces;
 
 public interface IEmployeeExtractionStrategy
 {
-    IAsyncEnumerable<IEmployeeExtract> Extract(Stream data);
+    IEnumerable<EmployeeExtract> Extract(Stream data);
 }
