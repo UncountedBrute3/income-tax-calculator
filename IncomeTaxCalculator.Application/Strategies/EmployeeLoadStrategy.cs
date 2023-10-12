@@ -21,7 +21,7 @@ public class EmployeeLoadStrategy : IEmployeeLoadStrategy
         int rowsChanged = await _repository.Add(employee);
         
         bool isCorrectQuantityOfChanges = rowsChanged == 1;
-        if (isCorrectQuantityOfChanges)
+        if (!isCorrectQuantityOfChanges)
         {
             _logger.LogError("Unexpected quantity of {rowCount} row(s) changed for employee ID {employeeId}. Expected one.", rowsChanged, employee.EmployeeId);
         }
