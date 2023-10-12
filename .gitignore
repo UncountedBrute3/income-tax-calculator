@@ -58,8 +58,5 @@ $RECYCLE.BIN/
 # Dotnet script auto-generated folder
 .dotnet
 
-# SQLite database files
-*.db
-
 # Test Files
 TestResults/
