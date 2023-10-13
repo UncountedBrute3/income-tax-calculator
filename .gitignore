@@ -16,6 +16,9 @@ artifacts/
 # Rider IDE specific
 .idea/
 
+# Visual Studie IDE specific
+.vs/
+
 # User-specific files
 *.suo
 *.user
