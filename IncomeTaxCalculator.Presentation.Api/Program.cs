@@ -48,3 +48,4 @@ using (IServiceScope scope = app.Services.CreateScope())
 }
 
 app.Run();
+public partial class Program { }
